@@ -4,17 +4,24 @@
       <div class="col-8 offset-2">
     <h3>Create a New Listing</h3>
    
-    <form method="POST" action="/listings">
+    <form method="POST" action="/listings" class="needs-validation" novalidate>
        <div class="mb-3">
         <label for="title" class="form-label">Title</label>
-        <input name="listing[title]" placeholder="Enter Title" type="text"  class="form-control"/>
-       </div>
+        <input name="listing[title]" placeholder="Enter Title" type="text"class="form-control" required/>
+        <div class="valid-feedback"> Title looks good!</div>
+        <div class="invalid-feedback">Enter title name</div>
+      </div>
       
       <div class="mb-3">
-        <label for="description" class="form-label">Description</label>
+        
+       <label for="description" class="form-label">Description</label>
        <textarea
-        name="listing[description]"placeholder="Enter Description" class="form-control">
+        name="listing[description]"
+        placeholder="Description....." 
+        class="form-control" 
+        required>
       </textarea>
+      <div class="invalid-feedback">write a short description</div>
       </div>
       
       <div class="mb-3">
@@ -27,19 +34,22 @@
 
       <div class="row">
         <div class="mb-3 col-md-4">
-          <label for="Price" class="form-label">Price</label>
-          <input name="listing[price]" placeholder="Enter Price" type="number"  class="form-control"/>
+          <label for="Price" class="form-label">Price</label >
+          <input name="listing[price]" placeholder="Enter Price"  class="form-control" required/>
+          <div class="invalid-feedback">price should be valid</div>
          </div>
         
         <div class="mb-3 col-md-8">
           <label for="country" class="form-label">country</label>
-          <input name="listing[country]" placeholder="Enter Country" type="text" class="form-control" />
+          <input name="listing[country]" placeholder="Enter Country" type="text" class="form-control" required />
+          <div class="invalid-feedback">country should be valid Ex.India,france,Itali</div>
         </div>
       </div>
   
       <div class="mb-3">
         <label for="location" class="form-label">Location</label>
-        <input name="listing[location]"placeholder="Enter Location"type="text" class="form-control"/>
+        <input name="listing[location]"placeholder="Enter Location"type="text" class="form-control" required/>
+        <div class="invalid-feedback">Location should be valid</div>
       </div> 
     
       <button class="btn btn-dark add-btn">Add</button>
