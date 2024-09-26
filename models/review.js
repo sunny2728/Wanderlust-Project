@@ -3,10 +3,11 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const reviewSchema = new Schema({
-    comment:string,
+    comment:String,
     rating:{
-        max:1,
-        mim:5,
+        type:Number,
+        max:5,
+        mim:1,
     },
 
     createdAt:{
@@ -16,4 +17,4 @@ const reviewSchema = new Schema({
 
 })
 
-module.exports = mongoose.model("Review",reviewSchema)
+module.exports = mongoose.model("Review",reviewSchema);
