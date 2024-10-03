@@ -5,7 +5,7 @@ const Listing = require("./models/listing.js");
 const path = require("path");
 const methodOverride = require("method-override");
 const ejsMate = require("ejs-mate");
-const Review = require("./models/review.js");
+
 
 
 
@@ -32,6 +32,7 @@ app.use(express.static(path.join(__dirname,"/public")))
 const wrapAsync = require("./utils/wrapAsync.js");
 const ExpressError = require("./utils/ExpressError.js");
 const{listingSchema} = require("./schema.js");
+const Review = require("./models/review.js");
 
 app.get("/", (req, res) => {
   res.send("Hi, I am root");
@@ -63,9 +64,7 @@ app.post("/listings",
     if(result.error);{
       throw new ExpressError(400,result.error);
     }
-    const newListing = new Listing(req.body.listing);
-    await newListing.save();
-    res.redirect("/listings");
+    
   }));
 
 //Edit Route
